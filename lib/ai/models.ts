@@ -17,4 +17,9 @@ export const chatModels: Array<ChatModel> = [
     name: 'Reasoning model',
     description: 'Uses advanced reasoning',
   },
+  {
+    id: 'claude-3-7-bedrock',
+    name: 'Claude 3.7 (Bedrock)',
+    description: 'Anthropic Claude 3.7 via Amazon Bedrock',
+  },
 ];

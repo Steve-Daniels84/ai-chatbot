@@ -21,7 +21,7 @@ export async function generateTitleFromUserMessage({
   message: UIMessage;
 }) {
   const { text: title } = await generateText({
-    model: myProvider.languageModel('title-model'),
+    model: myProvider.languageModel('claude-3-7-bedrock'),
     system: `\n
     - you will generate a short title based on the first message a user begins a conversation with
     - ensure it is not more than 80 characters long
@@ -35,6 +35,8 @@ export async function generateTitleFromUserMessage({
 
 export async function deleteTrailingMessages({ id }: { id: string }) {
   const [message] = await getMessageById({ id });
+
+  if (!message) return; // Safely exit if message not found
 
   await deleteMessagesByChatIdAfterTimestamp({
     chatId: message.chatId,
